@@ -1,0 +1,18 @@
+class Card(object):
+    suit = ['Clubs', 'Diamonds', 'Hearts', 'Spades']
+    value = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'King', 'Queen', 'Jack']
+
+    def __init__(self, suit, value):
+        if suit not in Card.suit:
+            raise ValueError(f'Invalid suit {suit}')
+        if value not in Card.value:
+            raise ValueError(f'Invalid value {value}')
+    
+        self.suit = suit
+        self.value = value
+
+card1 = Card('Hearts', 'Ace')
+card2 = Card('Spades', '2')
+
+print (f'Card 1: {card1.value} of {card1.suit}.')
+print (f'Card 2: {card2.value} of {card2.suit}.')
