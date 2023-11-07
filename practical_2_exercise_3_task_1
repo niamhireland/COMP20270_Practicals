@@ -1,0 +1,59 @@
+import random 
+
+class Card(object):
+    suit = ['Hearts', 'Diamonds', 'Clubs', 'Spades']
+    value = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King']
+
+    def __init__(self, suit_idx, value_idx):
+        if suit_idx < 0 or suit_idx >= len(Card.suit):
+            raise ValueError(f'Invalid suit index: {suit_idx}.')
+        if value_idx < 0 or value_idx >= len(Card.value):
+            raise ValueError(f'Invalid value index: {value_idx}.')
+        
+        self.suit = Card.suit[suit_idx]
+        self.value = Card.value[value_idx]
+    
+    def __eq__(self, other):
+        return self.value == other.value
+
+    def __lt__(self, other):
+        return self.value < other.value
+
+    def __le__(self, other):
+        return self.value <= other.value
+
+    def __gt__(self, other):
+        return self.value > other.value
+
+    def __ge__(self, other):
+        return self.value >= other.value
+
+    def __ne__(self, other):
+        return self.value != other.value
+
+    def compare_suit(self, other):
+        return self.suit == other.suit
+
+    def compare_card(self, other):
+        return self.value == other.value and self.suit == other.suit
+
+#Sample cards for comparison
+card1 = Card(0, 1)  
+card2 = Card(1, 1)  
+card3 = Card(0, 1)  
+
+# Comparing cards based on values
+print("Card1 == Card2:", card1 == card2) 
+print("Card1 != Card2:", card1 != card2)  
+print("Card1 < Card2:", card1 < card2)   
+print("Card1 <= Card2:", card1 <= card2) 
+print("Card1 > Card2:", card1 > card2)   
+print("Card1 >= Card2:", card1 >= card2)
+
+# Comparing cards based on suits
+print("Card1.compare_suit(Card2):", card1.compare_suit(card2)) 
+print("Card1.compare_suit(card3):", card1.compare_suit(card3)) 
+
+# Comparing cards based on both value and suit
+print("Card1.compare_card(card2):", card1.compare_card(card2)) 
+print("Card1.compare_card(card3):", card1.compare_card(card3)) 
