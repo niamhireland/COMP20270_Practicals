@@ -1,0 +1,19 @@
+# Retrieve salad
+print (f'Fruit Salad: {fruit_salad}')
+print ()
+
+# Update a fruit in the salad
+fruit_salad.update_fruit('apple', 'Golden Delicious', 'USA', 3)
+
+# Get and print information about a specific fruit
+fruit_info = fruit_salad.get_fruit_info("banana")
+print("Information about 'banana':", fruit_info)
+
+# Remove a fruit from the salad
+fruit_salad.remove_fruit("kiwi")
+
+# Get the names of the fruits in the salad
+print("Fruit Names:", fruit_salad.get_fruit_names())
+
+# Print the updated salad
+print("Updated Fruit Salad:", fruit_salad)
