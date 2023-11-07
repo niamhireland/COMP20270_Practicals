@@ -1,0 +1,24 @@
+    
+    def reveal(self):
+        return '\n'.join([str(card) for card in self.cards])
+    
+deck = Deck()
+
+deck.shuffle()
+
+num_to_draw = 5
+drawn_cards = deck.draw(num_to_draw)
+if not drawn_cards:
+    print ('Deck is empty, no cards to reveal.')
+
+print ()
+
+print ('Reveal the card value.')
+for card in drawn_cards:
+    print (card.reveal())
+
+print ('Deck has been shuffled with the shuffle method.')
+
+deck.reset()
+
+print ('Deck has been reset to the original state.')
