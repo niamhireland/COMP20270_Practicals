@@ -1,0 +1,64 @@
+import random 
+
+class Card(object):
+    suit = ['Hearts', 'Diamonds', 'Clubs', 'Spades']
+    value = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King']
+
+    def __init__(self, suit_idx, value_idx):
+        if suit_idx < 0 or suit_idx >= len(Card.suit):
+            raise ValueError(f'Invalid suit index: {suit_idx}.')
+        if value_idx < 0 or value_idx >= len(Card.value):
+            raise ValueError(f'Invalid value index: {value_idx}.')
+        
+        self.suit = Card.suit[suit_idx]
+        self.value = Card.value[value_idx]
+    
+    def __eq__(self, other):
+        return self.value == other.value
+
+    def __lt__(self, other):
+        return self.value < other.value
+
+    def __le__(self, other):
+        return self.value <= other.value
+
+    def __gt__(self, other):
+        return self.value > other.value
+
+    def __ge__(self, other):
+        return self.value >= other.value
+
+    def __ne__(self, other):
+        return self.value != other.value
+
+    def compare_suit(self, other):
+        return self.suit == other.suit
+
+    def compare_card(self, other):
+        return self.value == other.value and self.suit == other.suit
+    
+class Deck(object):
+    def __init__(self):
+        self.original_cards = [Card(suit_idx, value_idx - 1) for suit_idx in range(4) for value_idx in range(1, 14)]
+        self.cards = self.original_cards.copy()
+
+    def sort_by_value(self):
+        self.cards = sorted(self.cards, key=lambda card: (Card.value.index(card.value), Card.suit.index(card.suit)))
+
+    def sort_by_suit(self):
+        self.cards = sorted(self.cards, key=lambda card: (Card.suit.index(card.suit), Card.value.index(card.value)))
+
+deck = Deck()
+print ('Original deck:')  
+for card in deck.cards:
+    print (f'{card.value} of {card.suit}')
+
+deck.sort_by_value()
+print ('Deck sorted by value:')  
+for card in deck.cards:
+    print (f'{card.value} of {card.suit}')
+
+deck.sort_by_suit()
+print ('Deck sorted by suit:')
+for card in deck.cards:
+    print (f'{card.value} of {card.suit}')
