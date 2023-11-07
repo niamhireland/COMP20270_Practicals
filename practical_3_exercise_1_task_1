@@ -1,19 +1,23 @@
-# Retrieve salad
-print (f'Fruit Salad: {fruit_salad}')
-print ()
+class fruitSalad:
+    def __init__(self):
+        self.fruit_salad = {}
 
-# Update a fruit in the salad
-fruit_salad.update_fruit('apple', 'Golden Delicious', 'USA', 3)
+    def add_fruit(self, name, brand, country, quantity):
+        if name not in self.fruit_salad:
+            self.fruit_salad[name] = {
+                'brand': brand,
+                'country': country,
+                'quantity': quantity
+            }
 
-# Get and print information about a specific fruit
-fruit_info = fruit_salad.get_fruit_info("banana")
-print("Information about 'banana':", fruit_info)
+fruit_salad = fruitSalad()
 
-# Remove a fruit from the salad
-fruit_salad.remove_fruit("kiwi")
+# Add 5 fruits to the fruit_salad dictionary
+fruit_salad.add_fruit("apple", "Pink Lady", "Spain", 2)
+fruit_salad.add_fruit("banana", "Fyffe", "Ecuador", 5)
+fruit_salad.add_fruit("kiwi", "", "Ecuador", 10)
+fruit_salad.add_fruit("strawberry", "Keeling", "Ireland", 12)
+fruit_salad.add_fruit("grape", "Red Globe", "Spain", 7)
 
-# Get the names of the fruits in the salad
-print("Fruit Names:", fruit_salad.get_fruit_names())
-
-# Print the updated salad
-print("Updated Fruit Salad:", fruit_salad)
+# Print the fruit_salad dictionary to prove that all elements are added 
+print(f'Fruit Salad: {fruit_salad.fruit_salad}')
