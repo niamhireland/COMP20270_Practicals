@@ -12,3 +12,17 @@ class fruitSalad:
                 }
             else: 
                 print (f'Brand cannot be empty for {name}.')
+
+
+#Add fruits to dictionary
+fruit_salad.add_fruit("apple", "Pink Lady", "Spain", 2)
+fruit_salad.add_fruit("banana", "Fyffe", "Ecuador", 5)
+fruit_salad.add_fruit("kiwi", "Zespri", "Ecuador", 10)
+fruit_salad.add_fruit("strawberry", "Keeling", "Ireland", 12)
+fruit_salad.add_fruit("apple", "Golden Delicious", "Spain", 7)
+#the previous value of apple is overwritten
+
+
+print ('Fruit Names and Quantities:')
+for fruit, details in fruit_salad.fruit_salad.items():
+    print (f'{fruit}: {details["quantity"]}')
