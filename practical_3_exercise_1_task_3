@@ -1,0 +1,14 @@
+class fruitSalad:
+    def __init__(self):
+        self.fruit_salad = {}
+    
+    def add_fruit(self, name, brand, country, quantity):
+        if name not in self.fruit_salad:
+            if brand != '':
+                self.fruit_salad[name] = {
+                    'brand': brand, 
+                    'country': country, 
+                    'quantity': quantity
+                }
+            else: 
+                print (f'Brand cannot be empty for {name}.')
