@@ -1,0 +1,58 @@
+class CombinedSalad:
+    def __init__(self):
+        self.salad = {}
+
+    def add_fruit(self, name, brand, country, quantity):
+        if name not in self.salad:
+            if brand != '':
+                self.salad[name] = {
+                    'type': 'fruit',
+                    'brand': brand,
+                    'country': country,
+                    'quantity': quantity
+                }
+            else:
+                print(f'Brand cannot be empty for {name}.')
+
+    def add_veggie(self, name, brand, country, quantity):
+        if name not in self.salad:
+            if brand != '':
+                self.salad[name] = {
+                    'type': 'veggie',
+                    'brand': brand,
+                    'country': country,
+                    'quantity': quantity
+                }
+            else:
+                print(f'Brand cannot be empty for {name}.')
+
+    def remove_item(self, name):
+        if name in self.salad:
+            del self.salad[name]
+        else:
+            print(f'{name} is not in the salad.')
+
+    def names(self):
+        return list(self.salad.keys())
+
+# Create a CombinedSalad instance
+combined_salad = CombinedSalad()
+
+# Add fruits to the combined salad
+combined_salad.add_fruit("apple", "Pink Lady", "Spain", 2)
+combined_salad.add_fruit("banana", "Fyffe", "Ecuador", 5)
+combined_salad.add_fruit("kiwi", "Zespri", "Ecuador", 10)
+combined_salad.add_fruit("strawberry", "Keeling", "Ireland", 12)
+combined_salad.add_fruit("grape", "Red Globe", "Spain", 7)
+
+# Add veggies to the combined salad
+combined_salad.add_veggie("carrot", "Tesco", "U.K.", 5)
+combined_salad.add_veggie("broccoli", "Supervalu", "Ireland", 8)
+combined_salad.add_veggie("onion", "Lidl", "Germany", 11)
+combined_salad.add_veggie("lettuce", "Walmart", "United States", 3)
+combined_salad.add_veggie("cabbage", "Aldi", "Germany", 4)
+
+# Print the names and quantities of items in the combined salad
+print('Combined Salad Names and Quantities:')
+for item, details in combined_salad.salad.items():
+    print(f'{item}: {details["quantity"]}')
