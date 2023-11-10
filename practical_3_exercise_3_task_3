@@ -1,0 +1,51 @@
+import random
+
+class Card(object):
+    suit = ('Clubs', 'Diamonds', 'Hearts', 'Spades')
+    value = ('Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King')
+    #changed instance list to tuples 
+
+    def __init__(self, suit_idx=0, value_idx=0):
+        if suit_idx < 0 or suit_idx >= len(Card.suit):
+            raise ValueError('Invalid suit index')
+        if value_idx < 0 or value_idx >= len(Card.value):  
+            raise ValueError('Invalid value index')
+        
+        self.suit = Card.suit[suit_idx]
+        self.value = Card.value[value_idx]
+
+    def __eq__(self, other):
+        return self.value == other.value and self.suit == other.suit
+
+    def __lt__(self, other):
+        if self.value == other.value:
+            return Card.suit.index(self.suit) < Card.suit.index(other.suit)
+        return Card.value.index(self.value) < Card.value.index(other.value)
+
+    def __gt__(self, other):
+        if self.value == other.value:
+            return Card.suit.index(self.suit) > Card.suit.index(other.suit)
+        return Card.value.index(self.value) > Card.value.index(other.value)
+
+    def __str__(self):
+        return f"{self.value} of {self.suit}"
+
+    def __repr__(self):
+        return self.__str__()
+
+card1 = Card(1, 5)  # 6 of Diamonds
+card2 = Card(2, 10) # Jack of Hearts
+
+print(card1 == card2)  # Prints False
+print(card1 < card2)   # Prints True
+print(card1 > card2)   # Prints False
+
+print(card1)           # Prints 6 of Diamonds
+
+# Create another card
+card3 = Card(0, 1)  # 2 of Clubs
+
+# Perform logical comparisons
+print(card1 == card3)  # Prints False
+print(card1 < card3)   # Prints False
+print(card1 > card3)   # Prints True
