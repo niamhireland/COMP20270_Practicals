@@ -1,0 +1,16 @@
+class TextProcessor:
+    def __init__(self, input_string):
+        self.input_string = input_string
+        self.dict = {}
+
+    def show_text(self):
+        print(self.input_string)
+
+    def add_lookups(self, lookup_dict):
+        self.dict.update(lookup_dict)
+
+    def transform(self):
+        words = self.input_string.split()
+        transformed_words = [self.dict.get(word, word) for word in words]
+        transformed_string = ' '.join(transformed_words)
+        self.input_string = transformed_string
