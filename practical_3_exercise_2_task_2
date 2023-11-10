@@ -1,0 +1,7 @@
+class TextProcessor:
+    def __init__(self, input_string):
+        self.input_string = input_string
+        self.dict = {}
+
+    def show_text(self):
+        print(self.input_string)
