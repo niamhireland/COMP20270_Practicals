@@ -14,3 +14,19 @@ class TextProcessor:
         transformed_words = [self.dict.get(word, word) for word in words]
         transformed_string = ' '.join(transformed_words)
         self.input_string = transformed_string
+
+# Create a TextProcessor object
+processor = TextProcessor("This is a simple example.")
+
+# Add lookup dictionary
+lookup_dict = {"simple": "easy", "example": "demonstration"}
+processor.add_lookups(lookup_dict)
+
+# Show the original text
+processor.show_text()
+
+# Transform the text based on the lookup dictionary
+processor.transform()
+
+# Show the modified text
+processor.show_text()
