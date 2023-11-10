@@ -1,0 +1,29 @@
+import random 
+
+class Card(object):
+    suit = ['Hearts', 'Diamonds', 'Clubs', 'Spades']
+    value = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King']
+
+    def __init__(self, suit_idx, value_idx):
+        """Initialize a Card object with the specified suit and value indices.
+    Parameter suit_idx (int): Index for the card's suit (0-3).
+    Parameter value_idx (int): Index for the card's value (0-12)."""
+        if suit_idx < 0 or suit_idx >= len(Card.suit):
+            raise ValueError(f'Invalid suit index: {suit_idx}.')
+        if value_idx < 0 or value_idx >= len(Card.value):
+            raise ValueError(f'Invalid value index: {value_idx}.')
+        
+        self.suit = Card.suit[suit_idx]
+        self.value = Card.value[value_idx]
+
+    def __str__(self):
+        """"Return string representation of the card."""
+        return (f'{self.value} of {self.suit}.')
+
+    def reveal(self):
+        """Return string revealing the card."""
+        return f'{self.value} of {self.suit}'
+    
+class Deck(object):
+    '''Initialise a deck of 52 cards.'''
+    def __init__(self):
