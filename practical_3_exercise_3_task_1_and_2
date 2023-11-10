@@ -21,3 +21,23 @@ class Card(object):
         if self.value == other.value:
             return Card.suit.index(self.suit) < Card.suit.index(other.suit)
         return Card.value.index(self.value) < Card.value.index(other.value)
+
+    def __gt__(self, other):
+        if self.value == other.value:
+            return Card.suit.index(self.suit) > Card.suit.index(other.suit)
+        return Card.value.index(self.value) > Card.value.index(other.value)
+
+    def __str__(self):
+        return f"{self.value} of {self.suit}"
+
+    def __repr__(self):
+        return self.__str__()
+
+card1 = Card(1, 5)  # 6 of Diamonds
+card2 = Card(2, 10) # Jack of Hearts
+
+print(card1 == card2)  # Prints False
+print(card1 < card2)   # Prints True
+print(card1 > card2)   # Prints False
+
+print(card1)           # Prints 6 of Diamonds
