@@ -1,0 +1,17 @@
+class Numbers: 
+    def __init__(self):
+        self.number_list = [1, 2, None, 4, 5, None, 7, 8, 9] #numbers list with None values 
+
+        self.number_list = list(filter(lambda x: x is not None, self.number_list)) #remove None values
+
+        # Separating even and odd numbers using filter and lambda functions
+        self.even_numbers = list(filter(lambda x: x % 2 == 0, self.number_list))
+        self.odd_numbers = list(filter(lambda x: x % 2 != 0, self.number_list))
+
+numbers_instance = Numbers() 
+
+print (f'Original list: {numbers_instance.number_list}')
+
+print (f'Even number list: {numbers_instance.even_numbers}')
+
+print (f'Odd number list: {numbers_instance.odd_numbers}')
