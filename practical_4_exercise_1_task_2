@@ -3,3 +3,7 @@ class Numbers:
         self.number_list = [1, 2, None, 4, 5, None, 7, 8, 9] #numbers list with None values 
 
         self.number_list = list(filter(lambda x: x is not None, self.number_list)) #remove None values
+
+numbers_instance = Numbers() 
+
+print (numbers_instance.number_list)
