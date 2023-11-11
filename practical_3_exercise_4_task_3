@@ -54,4 +54,14 @@ deck.shuffle()
 
 # Draw two cards
 drawn_cards = deck.draw(2)
-if
+if drawn_cards[0] > drawn_cards[1]:
+    print(f"Drawn cards: {drawn_cards[0]} and {drawn_cards[1]}.")
+    print(f"The bigger card is: {drawn_cards[0]}.")
+else:
+    print(f"Drawn cards: {drawn_cards[0]} and {drawn_cards[1]}.")
+    print(f"The bigger card is: {drawn_cards[1]}.")
+
+# Reset the deck
+deck.reset()
+print("\nDeck after reset:")
+print(deck)
